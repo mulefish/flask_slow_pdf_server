@@ -4,13 +4,12 @@ There is an absolute path is code.py. Change it to match your situation.
 
  
 
-# setup ( on my macos ) : windows or linux will be different
+# I used a virutal env to setup flask on my macos setup ( on my macos ) : windows or linux will be different. If you do not need a virtual... skip this step
 ENV  
 python3 -m venv env  
 cd env/bin  
 source  activate   
 DEPS    
-pip3 install requests  
 pip3 install flask  
 pip3 freeze > requirements.txt  
 pip3 install -r requirement.txt  
