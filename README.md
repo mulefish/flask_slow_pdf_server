@@ -1,3 +1,9 @@
+
+# code.py change
+There is an absolute path is code.py. Change it to match your situation. 
+
+ 
+
 # setup ( on my macos ) : windows or linux will be different
 ENV  
 python3 -m venv env  
