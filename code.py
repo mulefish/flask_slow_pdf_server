@@ -4,9 +4,11 @@
 
 from flask import Flask
 from flask import request, send_from_directory, abort
+from flask_cors import CORS
 import time
 
 app = Flask(__name__)
+CORS(app) # allow CORS for all domains on all routes
 
 abs_path  = "/Users/<my username goes here>/mocks/static/"
 # PDF from https://www.learningcontainer.com/sample-pdf-files-for-testing/#Sample_PDF_File_for_Testing 
