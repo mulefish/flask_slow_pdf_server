@@ -8,7 +8,7 @@ import time
 
 app = Flask(__name__)
 
-abs_path  = "/Users/<my username goes here>/UWM/mocks/static/"
+abs_path  = "/Users/<my username goes here>/mocks/static/"
 # PDF from https://www.learningcontainer.com/sample-pdf-files-for-testing/#Sample_PDF_File_for_Testing 
 filename = "sample-pdf-download-10-mb.pdf"
 
