@@ -4,8 +4,8 @@ There is an absolute path is code.py. Change it to match your situation.
 
  
 
-# I used a virutal env to setup flask on my macos setup ( on my macos ) : windows or linux will be different. If you do not need a virtual... skip this step
-ENV  
+# ENV   
+( I used a virutal env to setup flask on my macos setup ( on my macos ) : windows or linux will be different. If you do not need a virtual... skip this step )  
 python3 -m venv env  
 cd env/bin  
 source  activate   
