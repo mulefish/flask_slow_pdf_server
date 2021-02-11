@@ -1,6 +1,6 @@
 
 # code.py change
-There is an absolute path is code.py. Change it to match your situation. 
+There is an absolute path in code.py. Change it to match your situation. 
 
  
 
