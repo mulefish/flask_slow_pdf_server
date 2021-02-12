@@ -1,19 +1,9 @@
 
-# code.py change
-There is an absolute path in code.py. Change it to match your situation. 
-
- 
-
-# setup ( on my macos ) : windows or linux will be different
+# Might or might not be needed on your setup. My virtual:  
 ENV  
 python3 -m venv env  
 cd env/bin  
 source  activate   
-DEPS    
-pip3 install flask  
-pip3 install flask-cors
-pip3 install -r requirements.t 
-pip3 freeze > requirements.txt  
 pip3 install -r requirement.txt  
 
 
