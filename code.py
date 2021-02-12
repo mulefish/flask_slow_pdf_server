@@ -6,22 +6,28 @@ from flask import Flask
 from flask import request, send_from_directory, abort
 from flask_cors import CORS
 import time
+import os
+
+
 
 app = Flask(__name__)
 CORS(app) # allow CORS for all domains on all routes
 
-abs_path  = "/Users/<my username goes here>/mocks/static/"
+rel_path = "static{}".format(os.sep)
+
 # PDF from https://www.learningcontainer.com/sample-pdf-files-for-testing/#Sample_PDF_File_for_Testing 
 filename = "sample-pdf-download-10-mb.pdf"
 
 @app.route("/", methods=["GET", "POST"])
 def how_to_use_this():
-    return "use GET /really_slow or /really_slow?pause=3"
+    return "! use GET /really_slow or /really_slow?pause=3"
 
 # This serves up the PDF, but how to slow it down?
 @app.route("/really_slow", methods=["GET"])
 def really_slow():
+
     pause = int(request.args.get('pause'))
+
     if pause is None:
         pause = 0
     print( "really_slow() is about to pause for {} seconds ".format( pause))
