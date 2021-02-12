@@ -35,7 +35,7 @@ def really_slow():
     print("really_slow() is done pausing")
 
     try:
-        return send_from_directory(abs_path, filename, as_attachment=False)
+        return send_from_directory(rel_path, filename, as_attachment=False)
     except FileNotFoundError:
         abort(404)
 
