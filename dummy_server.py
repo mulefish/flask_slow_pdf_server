@@ -70,10 +70,8 @@ def pretend_doc_hub_get():
     try:
         # Return back something from the json just to prove that
         # the json is being passed in correctly
-        content = request.json
-        loadId = content["loanId"]
         result = {}
-        result["loanId"] = loadId
+        result["loanId"] = 123
         result["data"] = []
 
         not_finished_count = random.randint(1,10)
