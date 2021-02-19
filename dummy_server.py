@@ -70,8 +70,10 @@ def pretend_doc_hub_get():
     try:
         # Return back something from the json just to prove that
         # the json is being passed in correctly
+        #
+
         result = {}
-        result["loanId"] = 123
+        result["loanId"] = "test"
         result["data"] = []
 
         not_finished_count = random.randint(1,10)
@@ -98,6 +100,7 @@ def pretend_doc_hub_get():
             i += 1
 
             result["data"].append(x)
+        print("pretend_doc_hub_get")
         return jsonify( result )
 
     except:
@@ -163,6 +166,9 @@ def pretend_doc_hub():
 
             result["data"].append(x)
 
+
+        print("pretend_doc_hub")
+        print( jsonify( result ))
 
         return jsonify( result )
 
