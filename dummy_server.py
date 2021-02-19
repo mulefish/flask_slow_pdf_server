@@ -18,7 +18,7 @@ filename = "sample-pdf-download-10-mb.pdf"
 @app.route("/", methods=["GET", "POST"])
 def how_to_use_this():
     return "! use GET /really_slow or /really_slow?pause=3"
-
+# localhost:5000/really_slow?pause=1 
 # This serves up the PDF, but how to slow it down?
 @app.route("/really_slow", methods=["GET"])
 def really_slow():
@@ -64,22 +64,54 @@ def _getRandomCategory():
 
     return random.choice(categories)
 
+# TODO - Remove this. I am building out the client axios and I just want a simple GET for now.
+@app.route("/doc_hub_get", methods=["GET"])
+def pretend_doc_hub_get():
+    try:
+        # Return back something from the json just to prove that
+        # the json is being passed in correctly
+        content = request.json
+        loadId = content["loanId"]
+        result = {}
+        result["loanId"] = loadId
+        result["data"] = []
+
+        not_finished_count = random.randint(1,10)
+        is_finished_count = random.randint(1,10)
+
+        i = 0
+        for x in range(not_finished_count):
+            x = {}
+            x["category"] = _getRandomCategory()
+            # random number between 0 and 1
+            x["confidence"] = random.random()
+            x["finished"] = False
+            x["id"] = i
+            i += 1
+            result["data"].append(x)
+
+        for x in range(is_finished_count):
+            x = {}
+            x["category"] = _getRandomCategory()
+            # random number between 0 and 1
+            x["confidence"] = random.random()
+            x["finished"] = True
+            x["id"] = i
+            i += 1
+
+            result["data"].append(x)
+        return jsonify( result )
+
+    except:
+        # Bad form to be this open/sloppy but this is just a test
+        bad_times = sys.exc_info()
+        print( bad_times)
+        return jsonify({"error":"Ack! Ill-formed json payload! (Most likely)"})
 
 
-# curl --location --request POST 'localhost:4040/doc_hub' \
-# --header 'Content-Type: application/json' \
-# --data-raw '{
-#     "loanId":"29292"
-# }'
 
-# OR 
 
-# curl --location --request POST 'localhost:4040/doc_hub' \
-# --header 'Content-Type: application/json' \
-# --data-raw '{
-#     "loanId":"29292",
-#     "forceCount":"actually the value here does not matter, only the key"
-# }'
+
 
 @app.route("/doc_hub", methods=["POST"])
 def pretend_doc_hub():
