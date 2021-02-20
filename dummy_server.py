@@ -15,6 +15,14 @@ rel_path = "static{}".format(os.sep)
 # PDF from https://www.learningcontainer.com/sample-pdf-files-for-testing/#Sample_PDF_File_for_Testing 
 filename = "sample-pdf-download-10-mb.pdf"
 
+
+ # ************************************** # 
+limit = 50 # Max number of possible files 
+ # ************************************** # 
+
+
+
+
 @app.route("/", methods=["GET", "POST"])
 def how_to_use_this():
     return "! use GET /really_slow or /really_slow?pause=3"
@@ -76,8 +84,8 @@ def pretend_doc_hub_get():
         result["loanId"] = "test"
         result["data"] = []
 
-        not_finished_count = random.randint(1,10)
-        is_finished_count = random.randint(1,10)
+        not_finished_count = random.randint(1,limit)
+        is_finished_count = random.randint(1,limit)
 
         i = 0
         for x in range(not_finished_count):
